@@ -1,5 +1,6 @@
 package com.example.rm0426.mynamescoreapp;
 
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,10 +11,13 @@ import android.widget.Toast;
 
 public class MyForm extends AppCompatActivity {
 
-    private static String STR_NONE       = "";
-    private static String STR_INPUT_NAME = "Input your name !";
-    private static String STR_ERROR      = "Error !";
-    private static String STR_OK         = "OK";
+    private final static String STR_NONE        = "";
+    private final static String STR_INPUT_NAME  = "Input your name !";
+    private final static String STR_ERROR       = "Error !";
+    private final static String STR_OK          = "OK";
+
+    // packageのID+任意の文字列(class名など)を使うことが望ましい.
+    public  final static String EXTRA_NAME      = "com.example.rm0426.mynamescore.myform";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,7 @@ public class MyForm extends AppCompatActivity {
             3. Dialog
              */
 
+            // 今回は、setErrorを使う.
             myEditText.setError(STR_INPUT_NAME);
 
             //Toast.makeText(MyForm.this,
@@ -57,6 +62,9 @@ public class MyForm extends AppCompatActivity {
         }
         else {
             // 次の画面(Activity)へ遷移.
+            Intent intent = new Intent(this, MyResult.class);
+            intent.putExtra(EXTRA_NAME, myName);
+            startActivity(intent);
         }
 
     }
