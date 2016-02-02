@@ -4,6 +4,6 @@
     <string name="str_submit">Submit</string>
     <string name="str_score">Your score: </string>
     <string name="str_score_pt"> pt!</string>
-    <string name="title_activity_my_result">MyResult</string>
+    <string name="title_activity_my_result">Result</string>
 
 </resources>
